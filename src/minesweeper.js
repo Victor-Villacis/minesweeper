@@ -4,9 +4,9 @@ const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
     let row = [];
     for (let numberOfColumnsIndex = 0; numberOfColumnsIndex < numberOfColumns; numberOfColumnsIndex++) {
       row.push(" ");
-    } board.push(row);
+    } 
+    board.push(row);
   }
-  console.log(board);
   return board;
 };
 //
@@ -23,13 +23,15 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
     board.push(row);
   }//end outer for loop
 
-  numberOfBombsPlaced = 0;
+  let numberOfBombsPlaced = 0;
   while (numberOfBombsPlaced < numberOfBombs) {
     let randomRowIndex = Math.floor(Math.random() * numberOfRows);
     let randomColumnIndex = Math.floor(Math.random() * numberOfColumns);
+    if(board[randomRowIndex][randomColumnIndex] != "B"){
     board[randomRowIndex][randomColumnIndex] = "B";
     numberOfBombsPlaced++;
-  }
+     }
+    }
   return board;
 };
 //
